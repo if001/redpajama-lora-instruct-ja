@@ -4,3 +4,5 @@ torch
 accelerate
 bitsandbytes
 git+https://github.com/huggingface/peft.git
+fire
+python-dotenv
