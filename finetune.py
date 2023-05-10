@@ -199,6 +199,7 @@ def train(
     group_by_length: bool = False,  # faster, but produces an odd training loss curve
     resume_from_checkpoint: str = None,  # either training checkpoint or final adapter
     prompt_template_name: str = "alpaca",  # Prompt template to use, default to Alpaca
+    gradient_checkpointing: bool = True
 ):
     if int(os.environ.get("LOCAL_RANK", 0)) == 0:
         print(
@@ -361,7 +362,7 @@ def train(
             group_by_length=group_by_length,
             report_to="wandb" if use_wandb else None,
             run_name=wandb_run_name if use_wandb else None,
-            gradient_checkpointing= True
+            gradient_checkpointing= gradient_checkpointing
         ),
         data_collator=DataCollatorForSeq2Seq(
             tokenizer, pad_to_multiple_of=8, return_tensors="pt", padding=True
