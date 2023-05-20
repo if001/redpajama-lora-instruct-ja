@@ -1,0 +1,6 @@
+{
+    "description": "Template used by Alpaca-LoRA.",
+    "prompt_input": "以下は、タスクのコンテキストとユーザーの入力です。適切な応答を出力してください。<NL><NL>コンテキスト: {input}<NL><NL>ユーザー: {instruction}<NL><NL>システム: ",
+    "prompt_no_input": "以下は、ユーザーの入力です。適切な応答を出力してください。<NL><NL>ユーザー: {instruction}<NL><NL>システム: <NL>",
+    "response_split": "システム: "
+}
