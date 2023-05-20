@@ -255,7 +255,7 @@ def train(
         # load_in_8bit_fp32_cpu_offload=True
     )
 
-    tokenizer = AutoTokenizer.from_pretrained(base_model)
+    tokenizer = AutoTokenizer.from_pretrained(base_model, use_fast=False)
 
     tokenizer.pad_token_id = 0  # unk. we want this to be different from the eos token
     tokenizer.padding_side = "left"  # Allow batched inference
