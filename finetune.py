@@ -258,7 +258,8 @@ def train(
     tokenizer = AutoTokenizer.from_pretrained(base_model, use_fast=False)
 
     tokenizer.pad_token_id = 0  # unk. we want this to be different from the eos token
-    tokenizer.padding_side = "left"  # Allow batched inference
+    # tokenizer.padding_side = "left"  # Allow batched inference
+    tokenizer.add_special_tokens({'eos_token':'<eos>'}) # for calm
 
     #
     # 8-bit training
