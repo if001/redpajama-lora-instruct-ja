@@ -1,3 +1,4 @@
+import fire
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
 from typing import List, Optional, Tuple
