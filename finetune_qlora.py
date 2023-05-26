@@ -152,7 +152,8 @@ def train(
     prompter = Prompter(prompt_template_name)
 
     from datasets import load_dataset
-    data = load_dataset("json", data_files=data_path)
+    data = load_dataset(data_path)
+
     tokenizer_helper = TokenizerHelper(
         prompter, tokenizer, train_on_inputs, cutoff_len, add_eos_token
     )
