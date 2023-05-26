@@ -82,7 +82,7 @@ def train(
     # training hyperparams
     per_device_train_batch_size: int = 1,
     gradient_accumulation_steps: int = 4,
-    num_epochs: int = 3,
+    max_steps: int = 3,
     learning_rate: float = 3e-4,
     cutoff_len: int = 256,
     val_set_size: int = 2000,
@@ -103,7 +103,7 @@ def train(
             f"output_dir: {output_dir}\n"
             f"per_device_train_batch_size: {per_device_train_batch_size}\n"
             f"gradient_accumulation_steps: {gradient_accumulation_steps}\n"
-            f"num_epochs: {num_epochs}\n"
+            f"max_steps: {max_steps}\n"
             f"learning_rate: {learning_rate}\n"
             f"cutoff_len: {cutoff_len}\n"
             f"val_set_size: {val_set_size}\n"
@@ -189,9 +189,8 @@ def train(
         args=transformers.TrainingArguments(
             per_device_train_batch_size=per_device_train_batch_size,
             gradient_accumulation_steps=gradient_accumulation_steps,
-            num_train_epochs=num_epochs,
             warmup_steps=2,
-            max_steps=3,
+            max_steps=max_steps,
             learning_rate=learning_rate,
             fp16=True,
             logging_steps=1,
