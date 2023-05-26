@@ -201,3 +201,6 @@ def train(
     )
     model.config.use_cache = False  # silence the warnings. Please re-enable for inference!
     trainer.train()
+
+if __name__ == "__main__":
+    fire.Fire(train)
