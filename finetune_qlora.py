@@ -181,7 +181,7 @@ def train(
 
 
     import transformers
-
+    # lr_scheduler_type='constant',
     trainer = transformers.Trainer(
         model=model,
         train_dataset=train_data,
@@ -190,9 +190,8 @@ def train(
             per_device_train_batch_size=per_device_train_batch_size,
             gradient_accumulation_steps=gradient_accumulation_steps,
             warmup_steps=2,
-            num_train_epochs=3,
-            learning_rate=learning_rate,
-            lr_scheduler_type='constant',
+            max_steps=10,
+            learning_rate=learning_rate,            
             fp16=True,
             logging_steps=1,
             output_dir=output_dir,
