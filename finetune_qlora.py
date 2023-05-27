@@ -193,7 +193,7 @@ def train(
             max_steps=10,
             learning_rate=learning_rate,            
             fp16=True,
-            logging_steps=1,
+            logging_steps=100,
             output_dir=output_dir,
             optim="paged_adamw_8bit"
         ),
@@ -201,6 +201,7 @@ def train(
     )
     model.config.use_cache = False  # silence the warnings. Please re-enable for inference!
     trainer.train()
+    model.save_pretrained(output_dir)
 
 if __name__ == "__main__":
     fire.Fire(train)
