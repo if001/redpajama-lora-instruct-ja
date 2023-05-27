@@ -193,9 +193,11 @@ def train(
             max_steps=10,
             learning_rate=learning_rate,            
             fp16=True,
-            logging_steps=100,
+            logging_steps=1,
             output_dir=output_dir,
-            optim="paged_adamw_8bit"
+            optim="paged_adamw_8bit",
+            evaluation_strategy="epoch",
+            logging_strategy="steps",
         ),
         data_collator=transformers.DataCollatorForLanguageModeling(tokenizer, mlm=False),
     )
