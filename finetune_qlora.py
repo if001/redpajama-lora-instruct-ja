@@ -195,7 +195,7 @@ def train(
             per_device_train_batch_size=per_device_train_batch_size,
             gradient_accumulation_steps=gradient_accumulation_steps,
             warmup_steps=2,
-            max_steps=10,
+            num_train_epochs=3.0,
             learning_rate=learning_rate,            
             fp16=True,
             logging_steps=1,
