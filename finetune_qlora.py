@@ -181,6 +181,11 @@ def train(
 
 
     import transformers
+    data_collator=transformers.DataCollatorForSeq2Seq(
+            tokenizer, pad_to_multiple_of=8, return_tensors="pt", padding=True
+    )
+    # data_collator=transformers.DataCollatorForLanguageModeling(tokenizer, mlm=False),
+
     # lr_scheduler_type='constant',
     trainer = transformers.Trainer(
         model=model,
@@ -199,7 +204,7 @@ def train(
             evaluation_strategy="epoch",
             logging_strategy="steps",
         ),
-        data_collator=transformers.DataCollatorForLanguageModeling(tokenizer, mlm=False),
+        data_collator=data_collator,
     )
     model.config.use_cache = False  # silence the warnings. Please re-enable for inference!
     trainer.train()
