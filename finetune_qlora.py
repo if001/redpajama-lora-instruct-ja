@@ -201,9 +201,9 @@ def train(
             logging_steps=1000,
             output_dir=output_dir,
             optim="paged_adamw_8bit",
-            evaluation_strategy="steps",
-            eval_steps=10,
-            logging_strategy="epoch",
+            evaluation_strategy="epoch",            
+            logging_strategy="steps",
+            logging_steps=100,
         ),
         data_collator=data_collator,
     )
