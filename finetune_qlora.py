@@ -198,7 +198,6 @@ def train(
             num_train_epochs=1.0,
             learning_rate=learning_rate,
             fp16=True,
-            logging_steps=1000,
             output_dir=output_dir,
             optim="paged_adamw_8bit",
             evaluation_strategy="epoch",            
