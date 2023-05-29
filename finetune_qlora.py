@@ -202,7 +202,7 @@ def train(
             output_dir=output_dir,
             optim="paged_adamw_8bit",
             evaluation_strategy="steps",
-            eval_steps=100,
+            eval_steps=10,
             logging_strategy="epoch",
         ),
         data_collator=data_collator,
