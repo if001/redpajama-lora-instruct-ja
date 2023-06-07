@@ -125,7 +125,8 @@ def train(
 
     tokenizer = AutoTokenizer.from_pretrained(base_model)
     tokenizer.pad_token_id = 0  # unk. we want this to be different from the eos token
-    tokenizer.add_special_tokens({'eos_token':'<eos>'}) # for calm
+    # tokenizer.add_special_tokens({'eos_token':'<eos>'}) # for calm
+    tokenizer.add_special_tokens({'eos_token':'<|endoftext|>'}) # for calm
 
     model = AutoModelForCausalLM.from_pretrained(base_model, quantization_config=bnb_config, device_map={"":0})
 
