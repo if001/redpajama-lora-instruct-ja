@@ -128,7 +128,10 @@ def train(
     # tokenizer.add_special_tokens({'eos_token':'<eos>'}) # for calm
     tokenizer.add_special_tokens({'eos_token':'<|endoftext|>'}) # for calm
 
-    model = AutoModelForCausalLM.from_pretrained(base_model, quantization_config=bnb_config, device_map={"":0})
+    model = AutoModelForCausalLM.from_pretrained(base_model, 
+                                                 quantization_config=bnb_config, 
+                                                 device_map={"":0},
+                                                 trust_remote_code=True)
 
 
 
